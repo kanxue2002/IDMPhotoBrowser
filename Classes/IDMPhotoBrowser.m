@@ -893,7 +893,11 @@ NSLocalizedStringFromTableInBundle((key), nil, [NSBundle bundleWithPath:[[NSBund
 }
 
 - (id<IDMPhoto>)photoAtIndex:(NSUInteger)index {
-    return _photos[index];
+    if (_photos.count < index) {
+        return _photos[index];
+    }else{
+        return nil;
+    }
 }
 
 - (IDMCaptionView *)captionViewForPhotoAtIndex:(NSUInteger)index {
